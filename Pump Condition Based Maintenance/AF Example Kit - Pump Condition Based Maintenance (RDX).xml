@@ -1,0 +1,1632 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AF xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="OSIsoft.AF.xsd" SchemaVersion="2.0" SoftwareVersion="2.10.9.593" ExportMode="AllReferences, NoUniqueID" PISystem="pi0" Database="AF Example Kit - Pump Condition Based Maintenance (RDX)" Description="Condition Based Maintenance for Pumps with Asset Based PI" Created="2021-09-24T21:10:02.3693216Z" id="48afe317-3514-46ea-bc4a-6b97cc6b5b92" ParentKey="02375643-eedf-4aee-9c46-586d8d32921d" ExportedObject="AF Example Kit - Pump Condition Based Maintenance (RDX)" ExportedType="AFDatabase" Identity="Database" PIPersist="182 {9895150E-085D-4fcb-A16D-5EF5D2527196} 2\{02375643-eedf-4aee-9c46-586d8d32921d}\{48afe317-3514-46ea-bc4a-6b97cc6b5b92}*pi0\AF Example Kit - Pump Condition Based Maintenance (RDX)">
+  <AFDeliveryFormat>
+    <Name>Global Default Email</Name>
+    <DeliveryChannel>Email</DeliveryChannel>
+    <Property>
+      <Name>Subject</Name>
+      <Value>&lt;FlowDocument xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:osiann="clr-namespace:OSIsoft.AN.Notification;assembly=OSIsoft.AF.Notification.DeliveryChannel.Email" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;&lt;Paragraph&gt;&lt;Span xml:space="preserve"&gt;&lt;osiann:ANInlineContent ContentID="9cfcde7e-9975-4aca-a6ba-47dc17119902" ContentProperty="0" PersistedContentName="" AdditionalData="" /&gt; generated a new notification event. &lt;/Span&gt; &lt;osiann:ANInlineContent ContentID="15628018-3792-4aad-b13f-ad324c406a84" ContentProperty="2" PersistedContentName="" AdditionalData="" /&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</Value>
+    </Property>
+    <Property>
+      <Name>Body</Name>
+      <Value>&lt;FlowDocument xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:osiann="clr-namespace:OSIsoft.AN.Notification;assembly=OSIsoft.AF.Notification.DeliveryChannel.Email" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;&lt;Section&gt;&lt;Paragraph&gt;&lt;Bold xml:space="preserve"&gt;Event: &lt;/Bold&gt;&lt;osiann:ANInlineContent ContentID="9cfcde7e-9975-4aca-a6ba-47dc17119902" ContentProperty="0" PersistedContentName="" AdditionalData="" /&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Bold xml:space="preserve"&gt;Name: &lt;/Bold&gt;&lt;osiann:ANInlineContent ContentID="418df2db-58ed-4c27-97de-0a909bd8b2fe" ContentProperty="0" PersistedContentName="" AdditionalData="" /&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Bold xml:space="preserve"&gt;Server: &lt;/Bold&gt;&lt;osiann:ANInlineContent ContentID="888f1705-c21e-49cb-8941-89ecc83ef8c1" ContentProperty="0" PersistedContentName="" AdditionalData="" /&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Bold xml:space="preserve"&gt;Database: &lt;/Bold&gt;&lt;osiann:ANInlineContent ContentID="a5407735-c1da-4659-8b46-0c82a2450d30" ContentProperty="0" PersistedContentName="" AdditionalData="" /&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Bold xml:space="preserve"&gt;Start Time: &lt;/Bold&gt;&lt;osiann:ANInlineContent ContentID="9cfcde7e-9975-4aca-a6ba-47dc17119902" ContentProperty="2001" PersistedContentName="" AdditionalData="" /&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Bold xml:space="preserve"&gt;Target: &lt;/Bold&gt;&lt;osiann:ANInlineContent ContentID="67fad554-031e-4e5f-9798-7ebccb4e909e" ContentProperty="1000" PersistedContentName="" AdditionalData="" /&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Bold xml:space="preserve"&gt;Severity: &lt;/Bold&gt;&lt;osiann:ANInlineContent ContentID="9cfcde7e-9975-4aca-a6ba-47dc17119902" ContentProperty="2004" PersistedContentName="" AdditionalData="" /&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Bold xml:space="preserve"&gt;Send Time: &lt;/Bold&gt;&lt;osiann:ANInlineContent ContentID="418df2db-58ed-4c27-97de-0a909bd8b2fe" ContentProperty="2003" PersistedContentName="" AdditionalData="" /&gt;&lt;/Paragraph&gt;&lt;Paragraph /&gt;&lt;/Section&gt;&lt;/FlowDocument&gt;</Value>
+    </Property>
+    <Property>
+      <Name>Importance</Name>
+      <Value>Normal</Value>
+    </Property>
+  </AFDeliveryFormat>
+  <AFDatabase>
+    <Name>AF Example Kit - Pump Condition Based Maintenance (RDX)</Name>
+    <Description>Condition Based Maintenance for Pumps with Asset Based PI</Description>
+    <AFAttributeCategory>
+      <Name>Comparison Based Maintenance Information</Name>
+    </AFAttributeCategory>
+    <AFAttributeCategory>
+      <Name>Limit Based Maintenance Information</Name>
+    </AFAttributeCategory>
+    <AFAttributeCategory>
+      <Name>Maintenance Information</Name>
+    </AFAttributeCategory>
+    <AFAttributeCategory>
+      <Name>Metadata</Name>
+    </AFAttributeCategory>
+    <AFAttributeCategory>
+      <Name>Process Variables</Name>
+    </AFAttributeCategory>
+    <AFAttributeCategory>
+      <Name>Trigger Input</Name>
+    </AFAttributeCategory>
+    <AFAttributeCategory>
+      <Name>Usage Based Maintenance Information</Name>
+    </AFAttributeCategory>
+    <AFTable>
+      <Name>OSIDemo_CMMS Data (Maintenance Information)</Name>
+      <ExternalPersist>false</ExternalPersist>
+      <Schema>
+<xs:schema id="OSIDemo_CMMS_x0020_Data_x0020__x0028_Maintenance_x0020_Information_x0029_DataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="OSIDemo_CMMS_x0020_Data_x0020__x0028_Maintenance_x0020_Information_x0029_DataSet" msdata:IsDataSet="true" msdata:Locale="">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="OSIDemo_CMMS_x0020_Data_x0020__x0028_Maintenance_x0020_Information_x0029_" msdata:Locale="">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Serial_x0020_Number" type="xs:string" minOccurs="0" />
+              <xs:element name="Installation_x0020_Date" msdata:DateTimeMode="Local" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema></Schema>
+      <DataTable><OSIDemo_CMMS_x0020_Data_x0020__x0028_Maintenance_x0020_Information_x0029_DataSet>&#xD;
+  <OSIDemo_CMMS_x0020_Data_x0020__x0028_Maintenance_x0020_Information_x0029_>&#xD;
+    <Serial_x0020_Number>Pump01</Serial_x0020_Number>&#xD;
+    <Installation_x0020_Date>2015-06-01T09:00:00+00:00</Installation_x0020_Date>&#xD;
+  </OSIDemo_CMMS_x0020_Data_x0020__x0028_Maintenance_x0020_Information_x0029_>&#xD;
+  <OSIDemo_CMMS_x0020_Data_x0020__x0028_Maintenance_x0020_Information_x0029_>&#xD;
+    <Serial_x0020_Number>Pump02</Serial_x0020_Number>&#xD;
+    <Installation_x0020_Date>2015-05-05T15:00:00+00:00</Installation_x0020_Date>&#xD;
+  </OSIDemo_CMMS_x0020_Data_x0020__x0028_Maintenance_x0020_Information_x0029_>&#xD;
+  <OSIDemo_CMMS_x0020_Data_x0020__x0028_Maintenance_x0020_Information_x0029_>&#xD;
+    <Serial_x0020_Number>Pump03</Serial_x0020_Number>&#xD;
+    <Installation_x0020_Date>2015-01-01T08:00:00+00:00</Installation_x0020_Date>&#xD;
+  </OSIDemo_CMMS_x0020_Data_x0020__x0028_Maintenance_x0020_Information_x0029_>&#xD;
+  <OSIDemo_CMMS_x0020_Data_x0020__x0028_Maintenance_x0020_Information_x0029_>&#xD;
+    <Serial_x0020_Number>Pump04</Serial_x0020_Number>&#xD;
+    <Installation_x0020_Date>2015-09-10T11:00:00+00:00</Installation_x0020_Date>&#xD;
+  </OSIDemo_CMMS_x0020_Data_x0020__x0028_Maintenance_x0020_Information_x0029_>&#xD;
+  <OSIDemo_CMMS_x0020_Data_x0020__x0028_Maintenance_x0020_Information_x0029_>&#xD;
+    <Serial_x0020_Number>Pump05</Serial_x0020_Number>&#xD;
+    <Installation_x0020_Date>2015-04-08T00:00:00+00:00</Installation_x0020_Date>&#xD;
+  </OSIDemo_CMMS_x0020_Data_x0020__x0028_Maintenance_x0020_Information_x0029_>&#xD;
+  <OSIDemo_CMMS_x0020_Data_x0020__x0028_Maintenance_x0020_Information_x0029_>&#xD;
+    <Serial_x0020_Number>Pump06</Serial_x0020_Number>&#xD;
+    <Installation_x0020_Date>2015-04-20T16:00:00+00:00</Installation_x0020_Date>&#xD;
+  </OSIDemo_CMMS_x0020_Data_x0020__x0028_Maintenance_x0020_Information_x0029_>&#xD;
+  <OSIDemo_CMMS_x0020_Data_x0020__x0028_Maintenance_x0020_Information_x0029_>&#xD;
+    <Serial_x0020_Number>Pump07</Serial_x0020_Number>&#xD;
+    <Installation_x0020_Date>2015-08-03T14:00:00+00:00</Installation_x0020_Date>&#xD;
+  </OSIDemo_CMMS_x0020_Data_x0020__x0028_Maintenance_x0020_Information_x0029_>&#xD;
+  <OSIDemo_CMMS_x0020_Data_x0020__x0028_Maintenance_x0020_Information_x0029_>&#xD;
+    <Serial_x0020_Number>Pump08</Serial_x0020_Number>&#xD;
+    <Installation_x0020_Date>2015-07-13T19:00:00+00:00</Installation_x0020_Date>&#xD;
+  </OSIDemo_CMMS_x0020_Data_x0020__x0028_Maintenance_x0020_Information_x0029_>&#xD;
+</OSIDemo_CMMS_x0020_Data_x0020__x0028_Maintenance_x0020_Information_x0029_DataSet></DataTable>
+    </AFTable>
+    <AFTable>
+      <Name>OSIDemo_Pump Manufacturer Information</Name>
+      <ExternalPersist>false</ExternalPersist>
+      <Schema>
+<xs:schema id="OSIDemo_Pump_x0020_Manufacturer_x0020_InformationDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="OSIDemo_Pump_x0020_Manufacturer_x0020_InformationDataSet" msdata:IsDataSet="true" msdata:Locale="">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="OSIDemo_Pump_x0020_Manufacturer_x0020_Information" msdata:Locale="">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Manufacturer" type="xs:string" minOccurs="0" />
+              <xs:element name="Type" type="xs:string" minOccurs="0" />
+              <xs:element name="Product_x0020_Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Horsepower_x0020__x0028_BHP_x0029_" type="xs:double" default="0" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema></Schema>
+      <DataTable><OSIDemo_Pump_x0020_Manufacturer_x0020_InformationDataSet>&#xD;
+  <OSIDemo_Pump_x0020_Manufacturer_x0020_Information>&#xD;
+    <Manufacturer>Pump-U UP</Manufacturer>&#xD;
+    <Type>Centrifugal</Type>&#xD;
+    <Product_x0020_Name>P3000</Product_x0020_Name>&#xD;
+    <Horsepower_x0020__x0028_BHP_x0029_>25</Horsepower_x0020__x0028_BHP_x0029_>&#xD;
+  </OSIDemo_Pump_x0020_Manufacturer_x0020_Information>&#xD;
+  <OSIDemo_Pump_x0020_Manufacturer_x0020_Information>&#xD;
+    <Manufacturer>PumpWorld</Manufacturer>&#xD;
+    <Type>Displacement</Type>&#xD;
+    <Product_x0020_Name>P3001S</Product_x0020_Name>&#xD;
+    <Horsepower_x0020__x0028_BHP_x0029_>31</Horsepower_x0020__x0028_BHP_x0029_>&#xD;
+  </OSIDemo_Pump_x0020_Manufacturer_x0020_Information>&#xD;
+  <OSIDemo_Pump_x0020_Manufacturer_x0020_Information>&#xD;
+    <Manufacturer>PumpsXStream</Manufacturer>&#xD;
+    <Type>Centrifugal</Type>&#xD;
+    <Product_x0020_Name>PXS9</Product_x0020_Name>&#xD;
+    <Horsepower_x0020__x0028_BHP_x0029_>45</Horsepower_x0020__x0028_BHP_x0029_>&#xD;
+  </OSIDemo_Pump_x0020_Manufacturer_x0020_Information>&#xD;
+  <OSIDemo_Pump_x0020_Manufacturer_x0020_Information>&#xD;
+    <Manufacturer>Get-Pumped</Manufacturer>&#xD;
+    <Type>Displacement</Type>&#xD;
+    <Product_x0020_Name>GP500</Product_x0020_Name>&#xD;
+    <Horsepower_x0020__x0028_BHP_x0029_>36</Horsepower_x0020__x0028_BHP_x0029_>&#xD;
+  </OSIDemo_Pump_x0020_Manufacturer_x0020_Information>&#xD;
+</OSIDemo_Pump_x0020_Manufacturer_x0020_InformationDataSet></DataTable>
+      <AFExtendedProperty>
+        <Name>Horsepower (BHP)|UOM</Name>
+        <Value type="String">horsepower</Value>
+      </AFExtendedProperty>
+    </AFTable>
+    <AFEnumerationSet>
+      <Name>Health Status</Name>
+      <AFEnumerationValue>
+        <Name>Failed</Name>
+        <Value>1</Value>
+      </AFEnumerationValue>
+      <AFEnumerationValue>
+        <Name>Good</Name>
+        <Value>3</Value>
+      </AFEnumerationValue>
+      <AFEnumerationValue>
+        <Name>Out of Service</Name>
+        <Value>0</Value>
+      </AFEnumerationValue>
+      <AFEnumerationValue>
+        <Name>Warning</Name>
+        <Value>2</Value>
+      </AFEnumerationValue>
+    </AFEnumerationSet>
+    <AFEnumerationSet>
+      <Name>Pump Status</Name>
+      <AFEnumerationValue>
+        <Name>OFF</Name>
+        <Value>0</Value>
+      </AFEnumerationValue>
+      <AFEnumerationValue>
+        <Name>ON</Name>
+        <Value>1</Value>
+      </AFEnumerationValue>
+    </AFEnumerationSet>
+    <AFElementTemplate>
+      <Name>Pump</Name>
+      <BaseTemplateOnly>false</BaseTemplateOnly>
+      <Type>None</Type>
+      <InstanceType>Element</InstanceType>
+      <AllowElementToExtend>false</AllowElementToExtend>
+      <AFExtendedProperty>
+        <Name>Override</Name>
+        <Value type="AFElement">Pump Station\Pump01</Value>
+      </AFExtendedProperty>
+      <AFAttributeTemplate>
+        <Name>Asset Name</Name>
+        <Type>String</Type>
+        <Value type="String">0</Value>
+        <DataReference>String Builder</DataReference>
+        <ConfigString>"%Element%";</ConfigString>
+        <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+      </AFAttributeTemplate>
+      <AFAttributeTemplate>
+        <Name>Bearing Temperature</Name>
+        <DefaultUOM>°F</DefaultUOM>
+        <Type>Single</Type>
+        <Value type="Single">0</Value>
+        <DataReference>PI Point</DataReference>
+        <ConfigString>\\%@\Config|Data Archive Name%\%Database%.%Element%.%Attribute%;pointtype=Float32;datasecurity=%@\Config|Analysis Data Security String%;pointsource=%@\Config|Analysis Point Source%;ptsecurity=%@\Config|Analysis Point Security String%</ConfigString>
+        <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+        <AFAttributeTemplate>
+          <Name>Average (Daily - Rolling)</Name>
+          <Type>Double</Type>
+          <Value type="Double">0</Value>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>..;TimeMethod=TimeRange;RelativeTime=-1d;TimeRangeMethod=Average</ConfigString>
+        </AFAttributeTemplate>
+        <AFAttributeTemplate>
+          <Name>Average (Daily)</Name>
+          <Type>Double</Type>
+          <Value type="Double">0</Value>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\%@\Config|Data Archive Name%\%Database%.%Element%.%..|Attribute%.%Attribute%;TimeRangeMethod=Average;pointtype=Float32;datasecurity=%@\Config|Analysis Data Security String%;pointsource=%@\Config|Analysis Point Source%;ptsecurity=%@\Config|Analysis Point Security String%</ConfigString>
+        </AFAttributeTemplate>
+        <AFAttributeTemplate>
+          <Name>Hi</Name>
+          <IsConfigurationItem>true</IsConfigurationItem>
+          <Trait>Hi</Trait>
+          <Value type="Single">172</Value>
+        </AFAttributeTemplate>
+        <AFAttributeTemplate>
+          <Name>HiHi</Name>
+          <IsConfigurationItem>true</IsConfigurationItem>
+          <Trait>HiHi</Trait>
+          <Value type="Single">175</Value>
+        </AFAttributeTemplate>
+      </AFAttributeTemplate>
+      <AFAttributeTemplate>
+        <Name>Calculated Efficiency</Name>
+        <DefaultUOM>%</DefaultUOM>
+        <Type>Single</Type>
+        <Value type="Single">0</Value>
+        <DataReference>PI Point</DataReference>
+        <ConfigString>\\%@\Config|Data Archive Name%\%Database%.%Element%.%Attribute%;pointtype=Float32;datasecurity=%@\Config|Analysis Data Security String%;pointsource=%@\Config|Analysis Point Source%;ptsecurity=%@\Config|Analysis Point Security String%</ConfigString>
+        <AFAttributeCategoryRef>Comparison Based Maintenance Information</AFAttributeCategoryRef>
+      </AFAttributeTemplate>
+      <AFAttributeTemplate>
+        <Name>Current Draw</Name>
+        <DefaultUOM>A</DefaultUOM>
+        <Type>Single</Type>
+        <Value type="Single">0</Value>
+        <DataReference>PI Point</DataReference>
+        <ConfigString>\\%@\Config|Data Archive Name%\%Database%.%Element%.%Attribute%;pointtype=Float32;datasecurity=%@\Config|Analysis Data Security String%;pointsource=%@\Config|Analysis Point Source%;ptsecurity=%@\Config|Analysis Point Security String%</ConfigString>
+        <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+      </AFAttributeTemplate>
+      <AFAttributeTemplate>
+        <Name>Discharge Flow Rate</Name>
+        <DefaultUOM>US gal/min</DefaultUOM>
+        <Type>Single</Type>
+        <Value type="Single">0</Value>
+        <DataReference>PI Point</DataReference>
+        <ConfigString>\\%@\Config|Data Archive Name%\%Database%.%Element%.%Attribute%;pointtype=Float32;datasecurity=%@\Config|Analysis Data Security String%;pointsource=%@\Config|Analysis Point Source%;ptsecurity=%@\Config|Analysis Point Security String%</ConfigString>
+        <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+        <AFAttributeTemplate>
+          <Name>Maximum (Hourly)</Name>
+          <DefaultUOM>US gal/min</DefaultUOM>
+          <Type>Double</Type>
+          <Value type="Double">0</Value>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\%@\Config|Data Archive Name%\%Database%.%Element%.%..|Attribute%.%Attribute%;TimeRangeMethod=Average;pointtype=Float32;datasecurity=%@\Config|Analysis Data Security String%;pointsource=%@\Config|Analysis Point Source%;ptsecurity=%@\Config|Analysis Point Security String%</ConfigString>
+        </AFAttributeTemplate>
+        <AFAttributeTemplate>
+          <Name>OP</Name>
+          <Description>Controller Output</Description>
+          <DefaultUOM>%</DefaultUOM>
+          <Type>Double</Type>
+          <Value type="Double">0</Value>
+          <DataReference>Formula</DataReference>
+          <ConfigString>D=..;M=Maximum (Hourly);[D/(M+10)]</ConfigString>
+        </AFAttributeTemplate>
+        <AFAttributeTemplate>
+          <Name>SP</Name>
+          <Description>Controller Setpoint (would usually be a control system tag rather than calculation)</Description>
+          <DefaultUOM>US gal/min</DefaultUOM>
+          <Type>Double</Type>
+          <Value type="Double">0</Value>
+          <DataReference>Formula</DataReference>
+          <ConfigString>D=..;[if (D) &lt; 200 then 0 else 450]</ConfigString>
+        </AFAttributeTemplate>
+      </AFAttributeTemplate>
+      <AFAttributeTemplate>
+        <Name>Horsepower</Name>
+        <DefaultUOM>hp</DefaultUOM>
+        <Type>Double</Type>
+        <Value type="Double">0</Value>
+        <DataReference>Table Lookup</DataReference>
+        <ConfigString>SELECT [Horsepower (BHP)] FROM [OSIDemo_Pump Manufacturer Information] WHERE Manufacturer = @Manufacturer</ConfigString>
+        <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+      </AFAttributeTemplate>
+      <AFAttributeTemplate>
+        <Name>Installation Date</Name>
+        <Type>DateTime</Type>
+        <Value type="DateTime">2014-01-01T08:00:00Z</Value>
+        <DataReference>Table Lookup</DataReference>
+        <ConfigString>SELECT [Installation Date] FROM [OSIDemo_CMMS Data (Maintenance Information)] WHERE [Serial Number] = '%Element%'</ConfigString>
+        <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+      </AFAttributeTemplate>
+      <AFAttributeTemplate>
+        <Name>Maintenance Date</Name>
+        <Type>DateTime</Type>
+        <Value type="DateTime">2015-10-10T10:00:00Z</Value>
+        <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+      </AFAttributeTemplate>
+      <AFAttributeTemplate>
+        <Name>Manufacturer</Name>
+        <IsConfigurationItem>true</IsConfigurationItem>
+        <Type>String</Type>
+        <Value type="String"></Value>
+        <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+      </AFAttributeTemplate>
+      <AFAttributeTemplate>
+        <Name>Number of Starts Since Maintenance</Name>
+        <DefaultUOM>count</DefaultUOM>
+        <Type>Int32</Type>
+        <Value type="Int32">0</Value>
+        <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+      </AFAttributeTemplate>
+      <AFAttributeTemplate>
+        <Name>Pump Status</Name>
+        <Description>On/Off Status PI Tag</Description>
+        <Type>AFEnumerationValue</Type>
+        <TypeQualifier type="AFObject">EnumerationSets[Pump Status]</TypeQualifier>
+        <DataReference>PI Point</DataReference>
+        <ConfigString>\\%@\Config|Data Archive Name%\%Database%.%Element%.%Attribute%;pointtype=Int16;datasecurity=%@\Config|Analysis Data Security String%;pointsource=%@\Config|Analysis Point Source%;ptsecurity=%@\Config|Analysis Point Security String%;step=1</ConfigString>
+        <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+        <AFAttributeTemplate>
+          <Name>Pump Status (Int)</Name>
+          <IsHidden>true</IsHidden>
+          <Type>Int32</Type>
+          <Value type="Int32">0</Value>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>..</ConfigString>
+        </AFAttributeTemplate>
+      </AFAttributeTemplate>
+      <AFAttributeTemplate>
+        <Name>Pump Type</Name>
+        <Type>String</Type>
+        <Value type="String"></Value>
+        <DataReference>Table Lookup</DataReference>
+        <ConfigString>SELECT Type FROM [OSIDemo_Pump Manufacturer Information] WHERE Manufacturer = @Manufacturer</ConfigString>
+        <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+      </AFAttributeTemplate>
+      <AFAttributeTemplate>
+        <Name>RunHours Since Installation</Name>
+        <DefaultUOM>h</DefaultUOM>
+        <Type>Single</Type>
+        <Value type="Single">0</Value>
+        <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+      </AFAttributeTemplate>
+      <AFAttributeTemplate>
+        <Name>RunHours Since Maintenance</Name>
+        <DefaultUOM>h</DefaultUOM>
+        <Type>Single</Type>
+        <Value type="Single">0</Value>
+        <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+        <AFAttributeTemplate>
+          <Name>RunHours Maintenance Status</Name>
+          <Type>String</Type>
+          <Value type="String">0</Value>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttributeTemplate>
+        <AFAttributeTemplate>
+          <Name>RunHours Maintenance Trigger</Name>
+          <DefaultUOM>h</DefaultUOM>
+          <Type>Single</Type>
+          <Value type="Single">1200</Value>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttributeTemplate>
+      </AFAttributeTemplate>
+      <AFAttributeTemplate>
+        <Name>Serial Number</Name>
+        <Type>String</Type>
+        <Value type="String"></Value>
+        <DataReference>Table Lookup</DataReference>
+        <ConfigString>SELECT [Product Name] FROM [OSIDemo_Pump Manufacturer Information] WHERE Manufacturer = @Manufacturer</ConfigString>
+        <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+      </AFAttributeTemplate>
+      <AFAttributeTemplate>
+        <Name>Suction Pressure</Name>
+        <DefaultUOM>psi</DefaultUOM>
+        <Type>Single</Type>
+        <Value type="Single">0</Value>
+        <DataReference>PI Point</DataReference>
+        <ConfigString>\\%@\Config|Data Archive Name%\%Database%.%Element%.%Attribute%;pointtype=Float32;datasecurity=%@\Config|Analysis Data Security String%;pointsource=%@\Config|Analysis Point Source%;ptsecurity=%@\Config|Analysis Point Security String%</ConfigString>
+        <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+      </AFAttributeTemplate>
+      <AFAttributeTemplate>
+        <Name>Total Head</Name>
+        <IsConfigurationItem>true</IsConfigurationItem>
+        <DefaultUOM>ft</DefaultUOM>
+        <Type>Single</Type>
+        <Value type="Single">150</Value>
+        <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+      </AFAttributeTemplate>
+      <AFAnalysisTemplate>
+        <Name>CBM - Comparison-Based Analysis</Name>
+        <Target>Pump</Target>
+        <AFAnalysisRule>
+          <AFPlugIn>PerformanceEquation</AFPlugIn>
+          <ConfigString>WaterPower := ('{b0ca2bcb-b791-41af-972e-8c192eb21d9a};Discharge Flow Rate')*('{1d01f343-2177-4147-beb4-050cdb1442be};Total Head')/3960;&#xD;
+Efficiency := WaterPower/'{5f1ebe95-553b-4e95-8318-deb7db33558a};Horsepower'*100;&#xD;
+</ConfigString>
+          <VariableMapping>Efficiency||Calculated Efficiency;[GUID]||{f8ebee81-4850-4955-8e1a-eccbefd06333};[GUID]||[UNSET];</VariableMapping>
+        </AFAnalysisRule>
+        <AFTimeRule>
+          <AFPlugIn>Periodic</AFPlugIn>
+        </AFTimeRule>
+      </AFAnalysisTemplate>
+      <AFAnalysisTemplate>
+        <Name>CBM - Daily Statistics</Name>
+        <Target>Pump</Target>
+        <AFAnalysisRule>
+          <AFPlugIn>PerformanceEquation</AFPlugIn>
+          <ConfigString>BearingTempAverage := TagAvg('{e731bb63-e2f9-4bca-b5f8-1de47c3a3ae8};Bearing Temperature','*-1d','*');</ConfigString>
+          <VariableMapping>BearingTempAverage||Bearing Temperature|Average (Daily);[GUID]||{ab88613c-c71f-43c3-96bb-89df65051d86};[GUID]||[UNSET];</VariableMapping>
+        </AFAnalysisRule>
+        <AFTimeRule>
+          <AFPlugIn>Periodic</AFPlugIn>
+          <ConfigString>Day=Sun, Mon, Tue, Wed, Thu, Fri, Sat</ConfigString>
+        </AFTimeRule>
+      </AFAnalysisTemplate>
+      <AFAnalysisTemplate>
+        <Name>CBM - Hourly Statistics</Name>
+        <Target>Pump</Target>
+        <AFAnalysisRule>
+          <AFPlugIn>PerformanceEquation</AFPlugIn>
+          <ConfigString>TagMax('{b0ca2bcb-b791-41af-972e-8c192eb21d9a};Discharge Flow Rate','*-1h','*')</ConfigString>
+          <VariableMapping>Output||Discharge Flow Rate|Maximum (Hourly);[GUID]||{99b570af-c318-4285-99a6-477d1e4c2420};[GUID]||[UNSET];</VariableMapping>
+        </AFAnalysisRule>
+        <AFTimeRule>
+          <AFPlugIn>Periodic</AFPlugIn>
+          <ConfigString>Frequency=3600</ConfigString>
+        </AFTimeRule>
+      </AFAnalysisTemplate>
+      <AFAnalysisTemplate>
+        <Name>CBM - Notification Trigger Analysis</Name>
+        <Target>Pump</Target>
+        <AFAnalysisRule>
+          <AFPlugIn>PerformanceEquation</AFPlugIn>
+          <ConfigString>NotificationStatus := IF '{fc0db3a7-af09-4f42-b996-52ecc91f9645};RunHours Since Maintenance' &gt; '{fc0db3a7-af09-4f42-b996-52ecc91f9645};RunHours Since Maintenance|{74940458-1a0f-4839-b0d2-af33108e65e2};RunHours Maintenance Trigger' &#xD;
+THEN "Alarm" &#xD;
+ELSE "Good";</ConfigString>
+          <VariableMapping>NotificationStatus||RunHours Since Maintenance|RunHours Maintenance Status;[GUID]||{919f879a-5924-4c4e-83a7-8060f2de52cf};[GUID]||[UNSET];</VariableMapping>
+        </AFAnalysisRule>
+        <AFTimeRule>
+          <AFPlugIn>Periodic</AFPlugIn>
+          <ConfigString>Frequency=1800</ConfigString>
+        </AFTimeRule>
+      </AFAnalysisTemplate>
+      <AFAnalysisTemplate>
+        <Name>CBM - Pump Status</Name>
+        <Description>On/Off Status of Pump</Description>
+        <Target>Pump</Target>
+        <AFAnalysisRule>
+          <AFPlugIn>PerformanceEquation</AFPlugIn>
+          <ConfigString>Status := IF '{09e76e19-cc23-4462-8e42-317cbb4e37ad};Current Draw' &gt; 1 AND '{2acc6453-5c53-40a8-a10e-d5b0d2582948};Pump Status' = "OFF" THEN "ON"&#xD;
+ELSE IF&#xD;
+'{09e76e19-cc23-4462-8e42-317cbb4e37ad};Current Draw' &lt; 1 AND '{2acc6453-5c53-40a8-a10e-d5b0d2582948};Pump Status' = "ON" THEN "OFF"&#xD;
+ELSE IF&#xD;
+'{09e76e19-cc23-4462-8e42-317cbb4e37ad};Current Draw' &gt; 1 AND '{2acc6453-5c53-40a8-a10e-d5b0d2582948};Pump Status' = "ON" THEN NoOutput()&#xD;
+ELSE IF&#xD;
+'{09e76e19-cc23-4462-8e42-317cbb4e37ad};Current Draw' &lt; 1 AND '{2acc6453-5c53-40a8-a10e-d5b0d2582948};Pump Status' = "OFF" THEN NoOutput()&#xD;
+ELSE IF TagBad('{2acc6453-5c53-40a8-a10e-d5b0d2582948};Pump Status','*') THEN "OFF"&#xD;
+ELSE NoOutput();</ConfigString>
+          <VariableMapping>Status||Pump Status;[GUID]||{2acc6453-5c53-40a8-a10e-d5b0d2582948};[GUID]||[UNSET];</VariableMapping>
+        </AFAnalysisRule>
+        <AFTimeRule>
+          <AFPlugIn>Periodic</AFPlugIn>
+        </AFTimeRule>
+      </AFAnalysisTemplate>
+      <AFAnalysisTemplate>
+        <Name>CBM - Usage-Based Analysis</Name>
+        <Target>Pump</Target>
+        <AFAnalysisRule>
+          <AFPlugIn>PerformanceEquation</AFPlugIn>
+          <ConfigString>LastMaintRuntime := TimeEq('{2acc6453-5c53-40a8-a10e-d5b0d2582948};Pump Status','{7662ae47-de27-40cf-9ea3-b5765dddef12};Maintenance Date','*',"ON")/3600;&#xD;
+InstallationRuntime := TimeEq('{2acc6453-5c53-40a8-a10e-d5b0d2582948};Pump Status','{09291866-1aa5-4988-8c79-d7fbdafee9f0};Installation Date','*',"ON")/3600;&#xD;
+NumberofStarts := EventCount('{2acc6453-5c53-40a8-a10e-d5b0d2582948};Pump Status','{7662ae47-de27-40cf-9ea3-b5765dddef12};Maintenance Date','*')/2;</ConfigString>
+          <VariableMapping>LastMaintRuntime||RunHours Since Maintenance;[GUID]||{fc0db3a7-af09-4f42-b996-52ecc91f9645};InstallationRuntime||RunHours Since Installation;[GUID]||{f37bdf78-f504-44dc-b2ea-acdc977e6b4f};NumberofStarts||Number of Starts Since Maintenance;[GUID]||{efa38822-b3eb-47a7-8783-ce9135009b29};[GUID]||[UNSET];</VariableMapping>
+        </AFAnalysisRule>
+        <AFTimeRule>
+          <AFPlugIn>Periodic</AFPlugIn>
+        </AFTimeRule>
+      </AFAnalysisTemplate>
+      <AFAnalysisTemplate>
+        <Name>OSIDemo - Demo Data - Current Draw</Name>
+        <Target>Pump</Target>
+        <AFAnalysisRule>
+          <AFPlugIn>PerformanceEquation</AFPlugIn>
+          <ConfigString>RatedCurrentDraw := // Typical Current Draw of the Pump&#xD;
+25;&#xD;
+RandomEq := Rand();&#xD;
+CurrentDrawEq := IF RandomEq &gt; .33 THEN Rand(RatedCurrentDraw,1) ELSE 0;</ConfigString>
+          <VariableMapping>CurrentDrawEq||Current Draw;[GUID]||{09e76e19-cc23-4462-8e42-317cbb4e37ad};[GUID]||[UNSET];</VariableMapping>
+        </AFAnalysisRule>
+        <AFTimeRule>
+          <AFPlugIn>Periodic</AFPlugIn>
+          <ConfigString>Frequency=1800</ConfigString>
+        </AFTimeRule>
+      </AFAnalysisTemplate>
+      <AFAnalysisTemplate>
+        <Name>OSIDemo - Demo Data - Process Variables</Name>
+        <Target>Pump</Target>
+        <AFAnalysisRule>
+          <AFPlugIn>PerformanceEquation</AFPlugIn>
+          <ConfigString>RatedFlowRate := // Typical Flow Rate of the Pump&#xD;
+450;&#xD;
+RatedPressure := // Typical Pressure of the Pump&#xD;
+150;&#xD;
+RatedTemperature := // Typical Temperature of the Pump&#xD;
+170;&#xD;
+FlowRate := IF '{2acc6453-5c53-40a8-a10e-d5b0d2582948};Pump Status' = "ON" THEN Rand(RatedFlowRate,35) ELSE 0;&#xD;
+Pressure := IF '{2acc6453-5c53-40a8-a10e-d5b0d2582948};Pump Status' = "ON" THEN Rand(RatedPressure,10) ELSE Rand(.1,.2);&#xD;
+PumpStatusSeconds := SecSinceChange('{2acc6453-5c53-40a8-a10e-d5b0d2582948};Pump Status');&#xD;
+Temperature := IF '{2acc6453-5c53-40a8-a10e-d5b0d2582948};Pump Status' = "ON" and '{e731bb63-e2f9-4bca-b5f8-1de47c3a3ae8};Bearing Temperature' &lt; RatedTemperature&#xD;
+THEN '{e731bb63-e2f9-4bca-b5f8-1de47c3a3ae8};Bearing Temperature'+Rand(5,2)&#xD;
+ELSE IF '{2acc6453-5c53-40a8-a10e-d5b0d2582948};Pump Status' = "ON" and '{e731bb63-e2f9-4bca-b5f8-1de47c3a3ae8};Bearing Temperature' &gt; RatedTemperature&#xD;
+THEN Rand(RatedTemperature,6) &#xD;
+ELSE If '{2acc6453-5c53-40a8-a10e-d5b0d2582948};Pump Status' = "OFF"&#xD;
+THEN ( (Rand(1,.1)*RatedTemperature - 90) * Exp(-.001*PumpStatusSeconds)) + 90&#xD;
+ELSE NoOutput();</ConfigString>
+          <VariableMapping>FlowRate||Discharge Flow Rate;[GUID]||{b0ca2bcb-b791-41af-972e-8c192eb21d9a};Pressure||Suction Pressure;[GUID]||{723f1e09-5c01-499b-8678-0bb9c71e36f2};Temperature||Bearing Temperature;[GUID]||{e731bb63-e2f9-4bca-b5f8-1de47c3a3ae8};[GUID]||[UNSET];</VariableMapping>
+        </AFAnalysisRule>
+        <AFTimeRule>
+          <AFPlugIn>Periodic</AFPlugIn>
+        </AFTimeRule>
+      </AFAnalysisTemplate>
+    </AFElementTemplate>
+    <AFElementTemplate>
+      <Name>Pump Station</Name>
+      <BaseTemplateOnly>false</BaseTemplateOnly>
+      <Type>None</Type>
+      <InstanceType>Element</InstanceType>
+      <AllowElementToExtend>false</AllowElementToExtend>
+      <AFExtendedProperty>
+        <Name>Override</Name>
+        <Value type="AFElement">Pump Station</Value>
+      </AFExtendedProperty>
+      <AFAttributeTemplate>
+        <Name>Number of Pumps On</Name>
+        <DefaultUOM>count</DefaultUOM>
+        <Type>Int32</Type>
+        <Value type="Int32">0</Value>
+        <DataReference>PI Point</DataReference>
+        <ConfigString>\\%@\Config|Data Archive Name%\%Database%.%Element%.%Attribute%;pointtype=Int32;datasecurity=%@\Config|Analysis Data Security String%;pointsource=%@\Config|Analysis Point Source%;ptsecurity=%@\Config|Analysis Point Security String%</ConfigString>
+      </AFAttributeTemplate>
+      <AFAnalysisTemplate>
+        <Name>Number Pumps On</Name>
+        <Target>Pump Station</Target>
+        <AFAnalysisRule>
+          <AFPlugIn>Rollup</AFPlugIn>
+          <VariableMapping>SearchCriteria||Elements[@Name=*]|Attributes[@Name=*]|Attributes[@Name=Pump Status (Int)];Sum||Number of Pumps On;[GUID]||{aab527c9-0186-4d90-b6dc-2c5cff26a0bb};[GUID]||[UNSET];</VariableMapping>
+        </AFAnalysisRule>
+        <AFTimeRule>
+          <AFPlugIn>Natural</AFPlugIn>
+        </AFTimeRule>
+      </AFAnalysisTemplate>
+    </AFElementTemplate>
+    <AFElement>
+      <Name>Config</Name>
+      <AFAttribute>
+        <Name>Analysis Data Security String</Name>
+        <Type>String</Type>
+        <Value type="String"></Value>
+      </AFAttribute>
+      <AFAttribute>
+        <Name>Analysis Point Security String</Name>
+        <Type>String</Type>
+        <Value type="String"></Value>
+      </AFAttribute>
+      <AFAttribute>
+        <Name>Analysis Point Source</Name>
+        <Type>String</Type>
+        <Value type="String">ANLY</Value>
+      </AFAttribute>
+      <AFAttribute>
+        <Name>Data Archive Name</Name>
+        <Type>String</Type>
+        <Value type="String"></Value>
+      </AFAttribute>
+    </AFElement>
+    <AFElement>
+      <Name>Pump Station</Name>
+      <Template>Pump Station</Template>
+      <AFAttribute>
+        <Name>Number of Pumps On</Name>
+        <DataReference>PI Point</DataReference>
+        <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump Station.Number of Pumps On?113</ConfigString>
+      </AFAttribute>
+      <AFElement ReferenceType="Parent-Child">
+        <Name>Pump01</Name>
+        <Template>Pump</Template>
+        <AFAttribute>
+          <Name>Asset Name</Name>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Bearing Temperature</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump01.Bearing Temperature?72</ConfigString>
+          <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+          <AFAttribute>
+            <Name>Average (Daily)</Name>
+            <DataReference>PI Point</DataReference>
+            <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump01.Bearing Temperature.Average (Daily)?105;TimeRangeMethod=Average</ConfigString>
+          </AFAttribute>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Calculated Efficiency</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump01.Calculated Efficiency?66</ConfigString>
+          <AFAttributeCategoryRef>Comparison Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Current Draw</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump01.Current Draw?81</ConfigString>
+          <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Discharge Flow Rate</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump01.Discharge Flow Rate?87</ConfigString>
+          <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+          <AFAttribute>
+            <Name>Maximum (Hourly)</Name>
+            <DataReference>PI Point</DataReference>
+            <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump01.Discharge Flow Rate.Maximum (Hourly)?108;TimeRangeMethod=Average</ConfigString>
+          </AFAttribute>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Horsepower</Name>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Installation Date</Name>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Maintenance Date</Name>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Manufacturer</Name>
+          <Value type="String">PumpsXStream</Value>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Number of Starts Since Maintenance</Name>
+          <UOM>count</UOM>
+          <Value type="Int32">110</Value>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Pump Status</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump01.Pump Status?90</ConfigString>
+          <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Pump Type</Name>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>RunHours Since Installation</Name>
+          <UOM>h</UOM>
+          <Value type="Single">177.833328</Value>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>RunHours Since Maintenance</Name>
+          <UOM>h</UOM>
+          <Value type="Single">177.833328</Value>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+          <AFAttribute>
+            <Name>RunHours Maintenance Status</Name>
+            <Value type="String">Good</Value>
+            <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+          </AFAttribute>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Serial Number</Name>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Suction Pressure</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump01.Suction Pressure?99</ConfigString>
+          <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Total Head</Name>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAnalysis>
+          <Name>CBM - Comparison-Based Analysis</Name>
+          <Template>CBM - Comparison-Based Analysis</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump01</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>CBM - Daily Statistics</Name>
+          <Template>CBM - Daily Statistics</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump01</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>CBM - Hourly Statistics</Name>
+          <Template>CBM - Hourly Statistics</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump01</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>CBM - Notification Trigger Analysis</Name>
+          <Template>CBM - Notification Trigger Analysis</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump01</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>CBM - Pump Status</Name>
+          <Description>On/Off Status of Pump</Description>
+          <Template>CBM - Pump Status</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump01</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>CBM - Usage-Based Analysis</Name>
+          <Template>CBM - Usage-Based Analysis</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump01</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>OSIDemo - Demo Data - Current Draw</Name>
+          <Template>OSIDemo - Demo Data - Current Draw</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump01</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>OSIDemo - Demo Data - Process Variables</Name>
+          <Template>OSIDemo - Demo Data - Process Variables</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump01</AFElementRef>
+          </Target>
+        </AFAnalysis>
+      </AFElement>
+      <AFElement ReferenceType="Parent-Child">
+        <Name>Pump02</Name>
+        <Template>Pump</Template>
+        <AFAttribute>
+          <Name>Asset Name</Name>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Bearing Temperature</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump02.Bearing Temperature?70</ConfigString>
+          <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+          <AFAttribute>
+            <Name>Average (Daily)</Name>
+            <DataReference>PI Point</DataReference>
+            <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump02.Bearing Temperature.Average (Daily)?104;TimeRangeMethod=Average</ConfigString>
+          </AFAttribute>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Calculated Efficiency</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump02.Calculated Efficiency?76</ConfigString>
+          <AFAttributeCategoryRef>Comparison Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Current Draw</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump02.Current Draw?83</ConfigString>
+          <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Discharge Flow Rate</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump02.Discharge Flow Rate?88</ConfigString>
+          <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+          <AFAttribute>
+            <Name>Maximum (Hourly)</Name>
+            <DataReference>PI Point</DataReference>
+            <ConfigString>..;TimeMethod=Interpolated;RelativeTime=t+3h;TimeRangeMethod=Average</ConfigString>
+          </AFAttribute>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Horsepower</Name>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Installation Date</Name>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Maintenance Date</Name>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Manufacturer</Name>
+          <Value type="String">Get-Pumped</Value>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Number of Starts Since Maintenance</Name>
+          <UOM>count</UOM>
+          <Value type="Int32">94</Value>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Pump Status</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump02.Pump Status?92</ConfigString>
+          <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Pump Type</Name>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>RunHours Since Installation</Name>
+          <UOM>h</UOM>
+          <Value type="Single">181.666672</Value>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>RunHours Since Maintenance</Name>
+          <UOM>h</UOM>
+          <Value type="Single">181.666672</Value>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+          <AFAttribute>
+            <Name>RunHours Maintenance Status</Name>
+            <Value type="String">Good</Value>
+            <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+          </AFAttribute>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Serial Number</Name>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Suction Pressure</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump02.Suction Pressure?100</ConfigString>
+          <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Total Head</Name>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAnalysis>
+          <Name>CBM - Comparison-Based Analysis</Name>
+          <Template>CBM - Comparison-Based Analysis</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump02</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>CBM - Daily Statistics</Name>
+          <Template>CBM - Daily Statistics</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump02</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>CBM - Hourly Statistics</Name>
+          <Template>CBM - Hourly Statistics</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump02</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>CBM - Notification Trigger Analysis</Name>
+          <Template>CBM - Notification Trigger Analysis</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump02</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>CBM - Pump Status</Name>
+          <Description>On/Off Status of Pump</Description>
+          <Template>CBM - Pump Status</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump02</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>CBM - Usage-Based Analysis</Name>
+          <Template>CBM - Usage-Based Analysis</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump02</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>OSIDemo - Demo Data - Current Draw</Name>
+          <Template>OSIDemo - Demo Data - Current Draw</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump02</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>OSIDemo - Demo Data - Process Variables</Name>
+          <Template>OSIDemo - Demo Data - Process Variables</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump02</AFElementRef>
+          </Target>
+        </AFAnalysis>
+      </AFElement>
+      <AFElement ReferenceType="Parent-Child">
+        <Name>Pump03</Name>
+        <Template>Pump</Template>
+        <AFAttribute>
+          <Name>Asset Name</Name>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Bearing Temperature</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump03.Bearing Temperature?71</ConfigString>
+          <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+          <AFAttribute>
+            <Name>Average (Daily)</Name>
+            <DataReference>PI Point</DataReference>
+            <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump03.Bearing Temperature.Average (Daily)?103;TimeRangeMethod=Average</ConfigString>
+          </AFAttribute>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Calculated Efficiency</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump03.Calculated Efficiency?77</ConfigString>
+          <AFAttributeCategoryRef>Comparison Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Current Draw</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump03.Current Draw?82</ConfigString>
+          <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Discharge Flow Rate</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump03.Discharge Flow Rate?89</ConfigString>
+          <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+          <AFAttribute>
+            <Name>Maximum (Hourly)</Name>
+            <DataReference>PI Point</DataReference>
+            <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump03.Discharge Flow Rate.Maximum (Hourly)?109;TimeRangeMethod=Average</ConfigString>
+          </AFAttribute>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Horsepower</Name>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Installation Date</Name>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Maintenance Date</Name>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Manufacturer</Name>
+          <Value type="String">Get-Pumped</Value>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Number of Starts Since Maintenance</Name>
+          <UOM>count</UOM>
+          <Value type="Int32">82</Value>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Pump Status</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump03.Pump Status?91</ConfigString>
+          <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Pump Type</Name>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>RunHours Since Installation</Name>
+          <UOM>h</UOM>
+          <Value type="Single">177.833328</Value>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>RunHours Since Maintenance</Name>
+          <UOM>h</UOM>
+          <Value type="Single">177.833328</Value>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+          <AFAttribute>
+            <Name>RunHours Maintenance Status</Name>
+            <Value type="String">Good</Value>
+            <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+          </AFAttribute>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Serial Number</Name>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Suction Pressure</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump03.Suction Pressure?101</ConfigString>
+          <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Total Head</Name>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAnalysis>
+          <Name>CBM - Comparison-Based Analysis</Name>
+          <Template>CBM - Comparison-Based Analysis</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump03</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>CBM - Daily Statistics</Name>
+          <Template>CBM - Daily Statistics</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump03</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>CBM - Hourly Statistics</Name>
+          <Template>CBM - Hourly Statistics</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump03</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>CBM - Notification Trigger Analysis</Name>
+          <Template>CBM - Notification Trigger Analysis</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump03</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>CBM - Pump Status</Name>
+          <Description>On/Off Status of Pump</Description>
+          <Template>CBM - Pump Status</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump03</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>CBM - Usage-Based Analysis</Name>
+          <Template>CBM - Usage-Based Analysis</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump03</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>OSIDemo - Demo Data - Current Draw</Name>
+          <Template>OSIDemo - Demo Data - Current Draw</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump03</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>OSIDemo - Demo Data - Process Variables</Name>
+          <Template>OSIDemo - Demo Data - Process Variables</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump03</AFElementRef>
+          </Target>
+        </AFAnalysis>
+      </AFElement>
+      <AFElement ReferenceType="Parent-Child">
+        <Name>Pump04</Name>
+        <Template>Pump</Template>
+        <AFAttribute>
+          <Name>Asset Name</Name>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Bearing Temperature</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump04.Bearing Temperature?68</ConfigString>
+          <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+          <AFAttribute>
+            <Name>Average (Daily)</Name>
+            <DataReference>PI Point</DataReference>
+            <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump04.Bearing Temperature.Average (Daily)?106;TimeRangeMethod=Average</ConfigString>
+          </AFAttribute>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Calculated Efficiency</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump04.Calculated Efficiency?73</ConfigString>
+          <AFAttributeCategoryRef>Comparison Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Current Draw</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump04.Current Draw?79</ConfigString>
+          <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Discharge Flow Rate</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump04.Discharge Flow Rate?84</ConfigString>
+          <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+          <AFAttribute>
+            <Name>Maximum (Hourly)</Name>
+            <DataReference>PI Point</DataReference>
+            <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump04.Discharge Flow Rate.Maximum (Hourly)?110;TimeRangeMethod=Average</ConfigString>
+          </AFAttribute>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Horsepower</Name>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Installation Date</Name>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Maintenance Date</Name>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Manufacturer</Name>
+          <Value type="String">Pump-U Up</Value>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Number of Starts Since Maintenance</Name>
+          <UOM>count</UOM>
+          <Value type="Int32">92</Value>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Pump Status</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump04.Pump Status?94</ConfigString>
+          <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Pump Type</Name>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>RunHours Since Installation</Name>
+          <UOM>h</UOM>
+          <Value type="Single">181.75</Value>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>RunHours Since Maintenance</Name>
+          <UOM>h</UOM>
+          <Value type="Single">181.75</Value>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+          <AFAttribute>
+            <Name>RunHours Maintenance Status</Name>
+            <Value type="String">Good</Value>
+            <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+          </AFAttribute>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Serial Number</Name>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Suction Pressure</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump04.Suction Pressure?96</ConfigString>
+          <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Total Head</Name>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAnalysis>
+          <Name>CBM - Comparison-Based Analysis</Name>
+          <Template>CBM - Comparison-Based Analysis</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump04</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>CBM - Daily Statistics</Name>
+          <Template>CBM - Daily Statistics</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump04</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>CBM - Hourly Statistics</Name>
+          <Template>CBM - Hourly Statistics</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump04</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>CBM - Notification Trigger Analysis</Name>
+          <Template>CBM - Notification Trigger Analysis</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump04</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>CBM - Pump Status</Name>
+          <Description>On/Off Status of Pump</Description>
+          <Template>CBM - Pump Status</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump04</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>CBM - Usage-Based Analysis</Name>
+          <Template>CBM - Usage-Based Analysis</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump04</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>OSIDemo - Demo Data - Current Draw</Name>
+          <Template>OSIDemo - Demo Data - Current Draw</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump04</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>OSIDemo - Demo Data - Process Variables</Name>
+          <Template>OSIDemo - Demo Data - Process Variables</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump04</AFElementRef>
+          </Target>
+        </AFAnalysis>
+      </AFElement>
+      <AFElement ReferenceType="Parent-Child">
+        <Name>Pump05</Name>
+        <Template>Pump</Template>
+        <AFAttribute>
+          <Name>Asset Name</Name>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Bearing Temperature</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump05.Bearing Temperature?69</ConfigString>
+          <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+          <AFAttribute>
+            <Name>Average (Daily)</Name>
+            <DataReference>PI Point</DataReference>
+            <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump05.Bearing Temperature.Average (Daily)?107;TimeRangeMethod=Average</ConfigString>
+          </AFAttribute>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Calculated Efficiency</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump05.Calculated Efficiency?74</ConfigString>
+          <AFAttributeCategoryRef>Comparison Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Current Draw</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump05.Current Draw?78</ConfigString>
+          <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Discharge Flow Rate</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump05.Discharge Flow Rate?85</ConfigString>
+          <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+          <AFAttribute>
+            <Name>Maximum (Hourly)</Name>
+            <DataReference>PI Point</DataReference>
+            <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump05.Discharge Flow Rate.Maximum (Hourly)?111;TimeRangeMethod=Average</ConfigString>
+          </AFAttribute>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Horsepower</Name>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Installation Date</Name>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Maintenance Date</Name>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Manufacturer</Name>
+          <Value type="String">Get-Pumped</Value>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Number of Starts Since Maintenance</Name>
+          <UOM>count</UOM>
+          <Value type="Int32">92</Value>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Pump Status</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump05.Pump Status?93</ConfigString>
+          <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Pump Type</Name>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>RunHours Since Installation</Name>
+          <UOM>h</UOM>
+          <Value type="Single">168.916672</Value>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>RunHours Since Maintenance</Name>
+          <UOM>h</UOM>
+          <Value type="Single">168.916672</Value>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+          <AFAttribute>
+            <Name>RunHours Maintenance Status</Name>
+            <Value type="String">Good</Value>
+            <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+          </AFAttribute>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Serial Number</Name>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Suction Pressure</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump05.Suction Pressure?97</ConfigString>
+          <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Total Head</Name>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAnalysis>
+          <Name>CBM - Comparison-Based Analysis</Name>
+          <Template>CBM - Comparison-Based Analysis</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump05</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>CBM - Daily Statistics</Name>
+          <Template>CBM - Daily Statistics</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump05</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>CBM - Hourly Statistics</Name>
+          <Template>CBM - Hourly Statistics</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump05</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>CBM - Notification Trigger Analysis</Name>
+          <Template>CBM - Notification Trigger Analysis</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump05</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>CBM - Pump Status</Name>
+          <Description>On/Off Status of Pump</Description>
+          <Template>CBM - Pump Status</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump05</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>CBM - Usage-Based Analysis</Name>
+          <Template>CBM - Usage-Based Analysis</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump05</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>OSIDemo - Demo Data - Current Draw</Name>
+          <Template>OSIDemo - Demo Data - Current Draw</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump05</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>OSIDemo - Demo Data - Process Variables</Name>
+          <Template>OSIDemo - Demo Data - Process Variables</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump05</AFElementRef>
+          </Target>
+        </AFAnalysis>
+      </AFElement>
+      <AFElement ReferenceType="Parent-Child">
+        <Name>Pump06</Name>
+        <Template>Pump</Template>
+        <AFAttribute>
+          <Name>Asset Name</Name>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Bearing Temperature</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump06.Bearing Temperature?67</ConfigString>
+          <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+          <AFAttribute>
+            <Name>Average (Daily)</Name>
+            <DataReference>PI Point</DataReference>
+            <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump06.Bearing Temperature.Average (Daily)?102;TimeRangeMethod=Average</ConfigString>
+          </AFAttribute>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Calculated Efficiency</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump06.Calculated Efficiency?75</ConfigString>
+          <AFAttributeCategoryRef>Comparison Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Current Draw</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump06.Current Draw?80</ConfigString>
+          <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Discharge Flow Rate</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump06.Discharge Flow Rate?86</ConfigString>
+          <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+          <AFAttribute>
+            <Name>Maximum (Hourly)</Name>
+            <DataReference>PI Point</DataReference>
+            <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump06.Discharge Flow Rate.Maximum (Hourly)?112;TimeRangeMethod=Average</ConfigString>
+          </AFAttribute>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Horsepower</Name>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Installation Date</Name>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Maintenance Date</Name>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Manufacturer</Name>
+          <Value type="String">PumpsXStream</Value>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Number of Starts Since Maintenance</Name>
+          <UOM>count</UOM>
+          <Value type="Int32">87</Value>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Pump Status</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump06.Pump Status?95</ConfigString>
+          <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Pump Type</Name>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>RunHours Since Installation</Name>
+          <UOM>h</UOM>
+          <Value type="Single">178.333328</Value>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>RunHours Since Maintenance</Name>
+          <UOM>h</UOM>
+          <Value type="Single">178.333328</Value>
+          <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+          <AFAttribute>
+            <Name>RunHours Maintenance Status</Name>
+            <Value type="String">Good</Value>
+            <AFAttributeCategoryRef>Usage Based Maintenance Information</AFAttributeCategoryRef>
+          </AFAttribute>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Serial Number</Name>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Suction Pressure</Name>
+          <DataReference>PI Point</DataReference>
+          <ConfigString>\\pi0?5aa9676f-1513-43f2-ac52-4a26983d5f6e\AF Example Kit - Pump Condition Based Maintenance (RDX).Pump06.Suction Pressure?98</ConfigString>
+          <AFAttributeCategoryRef>Process Variables</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAttribute>
+          <Name>Total Head</Name>
+          <AFAttributeCategoryRef>Metadata</AFAttributeCategoryRef>
+        </AFAttribute>
+        <AFAnalysis>
+          <Name>CBM - Comparison-Based Analysis</Name>
+          <Template>CBM - Comparison-Based Analysis</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump06</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>CBM - Daily Statistics</Name>
+          <Template>CBM - Daily Statistics</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump06</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>CBM - Hourly Statistics</Name>
+          <Template>CBM - Hourly Statistics</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump06</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>CBM - Notification Trigger Analysis</Name>
+          <Template>CBM - Notification Trigger Analysis</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump06</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>CBM - Pump Status</Name>
+          <Description>On/Off Status of Pump</Description>
+          <Template>CBM - Pump Status</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump06</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>CBM - Usage-Based Analysis</Name>
+          <Template>CBM - Usage-Based Analysis</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump06</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>OSIDemo - Demo Data - Current Draw</Name>
+          <Template>OSIDemo - Demo Data - Current Draw</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump06</AFElementRef>
+          </Target>
+        </AFAnalysis>
+        <AFAnalysis>
+          <Name>OSIDemo - Demo Data - Process Variables</Name>
+          <Template>OSIDemo - Demo Data - Process Variables</Template>
+          <Status>Enabled</Status>
+          <Target>
+            <AFElementRef>Pump Station\Pump06</AFElementRef>
+          </Target>
+        </AFAnalysis>
+      </AFElement>
+      <AFAnalysis>
+        <Name>Number Pumps On</Name>
+        <Template>Number Pumps On</Template>
+        <Status>Enabled</Status>
+        <Target>
+          <AFElementRef>Pump Station</AFElementRef>
+        </Target>
+      </AFAnalysis>
+    </AFElement>
+  </AFDatabase>
+</AF>
